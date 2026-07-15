@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vishal Rajendra Dalve — Senior Backend Engineer</title>
+<meta name="description" content="Vishal Rajendra Dalve — Senior Backend Engineer specializing in FinTech, Payments, Banking APIs, Node.js, Microservices, and Distributed Systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#f4f5fb;
+    --card:#ffffff;
+    --sidebar:#eef0fc;
+    --border:#e1e4f0;
+    --text:#1e2233;
+    --text-dim:#5b6272;
+    --accent:#4b52d6;
+    --accent-dark:#383fb0;
+    --accent-2:#0e9f8e;
+    --tag-bg:#eef0fc;
+    --tag-text:#3d3fa0;
+    --radius:16px;
+    --max:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.65;
+  }
+  h1,h2,h3,.logo{font-family:'Poppins',sans-serif;}
+  a{color:inherit;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(244,245,251,0.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+  .nav-inner{max-width:var(--max);margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-weight:700;font-size:1.1rem;color:var(--accent-dark);}
+  nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;flex-wrap:wrap;}
+  nav a{text-decoration:none;color:var(--text-dim);font-size:0.9rem;font-weight:600;transition:color .2s;}
+  nav a:hover{color:var(--accent-dark);}
+  .nav-cta{background:var(--accent);color:#ffffff;padding:9px 18px;border-radius:8px;font-weight:700;font-size:0.88rem;text-decoration:none;white-space:nowrap;}
+
+  /* HERO */
+  .hero{padding:70px 0 50px;}
+  .hero-panel{background:var(--sidebar);border:1px solid var(--border);border-radius:24px;padding:44px;display:flex;gap:36px;align-items:center;flex-wrap:wrap;}
+  .avatar-circle{width:112px;height:112px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));color:#fff;display:flex;align-items:center;justify-content:center;font-size:2.4rem;font-weight:700;font-family:'Poppins',sans-serif;flex-shrink:0;box-shadow:0 8px 24px rgba(75,82,214,0.25);}
+  .hero h1{font-size:2.2rem;line-height:1.15;margin:0 0 8px;color:var(--text);letter-spacing:-0.01em;}
+  .hero .role{font-size:0.98rem;font-weight:700;color:var(--accent-dark);margin-bottom:14px;line-height:1.5;}
+  .hero p.sub{font-size:0.97rem;color:var(--text-dim);max-width:660px;margin:0;}
+  .hero-meta{display:flex;gap:20px;flex-wrap:wrap;color:var(--text-dim);font-size:0.87rem;margin-top:40px;}
+  .hero-meta span{display:flex;align-items:center;gap:6px;}
+  .hero-meta a{color:var(--accent-dark);text-decoration:none;font-weight:600;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px;}
+  .btn{padding:12px 22px;border-radius:9px;text-decoration:none;font-weight:600;font-size:0.93rem;display:inline-flex;align-items:center;gap:8px;transition:transform .15s,box-shadow .15s;border:1px solid transparent;cursor:pointer;font-family:inherit;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--accent);color:#ffffff;box-shadow:0 6px 16px rgba(75,82,214,0.25);}
+  .btn-outline{border:1px solid var(--border);color:var(--text);background:#ffffff;}
+  .btn-outline:hover{border-color:var(--accent);color:var(--accent-dark);}
+
+  section{padding:56px 0;border-top:1px solid var(--border);}
+  .eyebrow{color:var(--accent-dark);text-transform:uppercase;letter-spacing:0.1em;font-size:0.76rem;font-weight:700;margin-bottom:10px;}
+  h2.section-title{font-size:1.72rem;margin:0 0 32px;color:var(--text);letter-spacing:-0.01em;}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:46px;align-items:start;}
+  .about p{color:var(--text-dim);margin-bottom:16px;font-size:0.95rem;}
+  .about .callout{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:18px 20px;margin-bottom:16px;}
+  .about .callout p{margin:0;color:var(--text);font-size:0.92rem;}
+  .side-stack{display:flex;flex-direction:column;gap:16px;}
+  .skill-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;}
+  .skill-card h3{margin:0 0 12px;font-size:0.9rem;color:var(--accent-dark);text-transform:uppercase;letter-spacing:0.04em;}
+  .tag-list{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{background:var(--tag-bg);border:1px solid var(--border);padding:5px 12px;border-radius:6px;font-size:0.82rem;color:var(--tag-text);font-weight:600;}
+
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+
+  /* PROVIDER LISTS (Integrations section) */
+  .provider-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:10px;}
+  .provider-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;}
+  .provider-card h3{margin:0 0 14px;font-size:0.9rem;color:var(--accent-dark);text-transform:uppercase;letter-spacing:0.04em;}
+  .provider-list{display:flex;flex-direction:column;gap:12px;}
+  .provider-item .name{font-weight:700;color:var(--text);font-size:0.92rem;}
+  .provider-item .desc{color:var(--text-dim);font-size:0.84rem;margin-top:2px;}
+  .featured-integration{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;display:flex;gap:18px;align-items:flex-start;}
+  .featured-integration .icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:'Poppins',sans-serif;}
+  .featured-integration h3{margin:0 0 6px;font-size:1rem;color:var(--text);}
+  .featured-integration p{margin:0;color:var(--text-dim);font-size:0.9rem;}
+
+  /* EXPERIENCE / EDUCATION TIMELINE */
+  .timeline{border-left:2px solid var(--border);padding-left:28px;display:flex;flex-direction:column;gap:30px;}
+  .timeline-item{position:relative;}
+  .timeline-item::before{content:'';position:absolute;left:-34px;top:5px;width:11px;height:11px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);}
+  .timeline-item .meta{color:var(--accent-dark);font-size:0.82rem;font-weight:700;margin-bottom:4px;}
+  .timeline-item .role{font-weight:700;font-size:1.02rem;color:var(--text);}
+  .timeline-item .org{font-weight:600;color:var(--text-dim);font-size:0.92rem;margin-bottom:6px;}
+  .timeline-item p{color:var(--text-dim);font-size:0.9rem;margin:0 0 6px;}
+
+  .edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
+  .edu-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;}
+  .edu-card .year{color:var(--accent-dark);font-weight:700;font-size:0.85rem;}
+  .edu-card .deg{font-weight:700;margin:4px 0 2px;}
+  .edu-card .school{color:var(--text-dim);font-size:0.88rem;}
+
+  /* PROJECTS — every card follows the same block layout: category badge, duration, title, description, CTA */
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px;}
+  .project-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:0;overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;text-align:left;font-family:inherit;display:flex;flex-direction:column;}
+  .project-card:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(30,34,51,0.08);border-color:var(--accent);}
+  .project-thumb{height:8px;background:linear-gradient(90deg,var(--accent),var(--accent-2));}
+  .project-body{padding:20px 22px;display:flex;flex-direction:column;flex-grow:1;}
+  .project-top-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px;}
+  .project-category{font-size:0.72rem;font-weight:700;color:var(--accent-dark);background:var(--tag-bg);padding:3px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:0.03em;}
+  .project-card .dur{font-size:0.74rem;color:var(--text-dim);font-weight:600;white-space:nowrap;}
+  .project-card h3{margin:0 0 8px;font-size:1.02rem;color:var(--text);}
+  .project-card p{color:var(--text-dim);font-size:0.88rem;margin:0 0 14px;min-height:38px;flex-grow:1;}
+  .project-more{font-size:0.84rem;font-weight:700;color:var(--accent-dark);}
+
+  .contact-box{background:linear-gradient(135deg,var(--accent),var(--accent-dark));border-radius:var(--radius);padding:48px;text-align:center;color:#ffffff;}
+  .contact-box h2{margin:0 0 12px;font-size:1.65rem;color:#ffffff;}
+  .contact-box p{color:rgba(255,255,255,0.88);margin-bottom:8px;max-width:640px;margin-left:auto;margin-right:auto;}
+  .contact-box p.regions{margin-bottom:24px;font-size:0.88rem;color:rgba(255,255,255,0.75);}
+  .contact-box .btn-primary{background:#ffffff;color:var(--accent-dark);box-shadow:none;}
+
+  footer{padding:26px 0;text-align:center;color:var(--text-dim);font-size:0.83rem;border-top:1px solid var(--border);}
+
+  /* MODAL */
+  .modal-overlay{position:fixed;inset:0;background:rgba(20,22,35,0.55);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:100;padding:20px;}
+  .modal-overlay.open{display:flex;}
+  .modal{background:#ffffff;border-radius:20px;max-width:520px;width:100%;max-height:85vh;overflow-y:auto;position:relative;box-shadow:0 24px 60px rgba(20,22,35,0.3);animation:pop .18s ease;}
+  @keyframes pop{from{transform:scale(.96);opacity:0;}to{transform:scale(1);opacity:1;}}
+  .modal-top{height:8px;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:20px 20px 0 0;}
+  .modal-body{padding:30px 32px 32px;}
+  .modal-close{position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:9px;background:var(--sidebar);border:1px solid var(--border);color:var(--text);font-size:1.05rem;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;}
+  .modal-top-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+  .modal h3{margin:0;font-size:1.3rem;color:var(--text);}
+  .modal .modal-dur{color:var(--text-dim);font-size:0.82rem;font-weight:600;margin-bottom:18px;}
+  .modal p.desc{color:var(--text-dim);font-size:0.95rem;margin-bottom:20px;}
+  .modal-links{display:flex;gap:12px;margin-top:6px;flex-wrap:wrap;}
+
+  @media (max-width:800px){
+    .about-grid{grid-template-columns:1fr;}
+    nav ul{display:none;}
+    .hero h1{font-size:1.8rem;}
+    .hero-panel{padding:30px;flex-direction:column;text-align:center;}
+    .hero-meta{justify-content:center;}
+    .hero-actions{justify-content:center;}
+    .featured-integration{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo">Vishal Dalve</div>
+    <nav><ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Expertise</a></li>
+      <li><a href="#integrations">Integrations</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+    <a class="nav-cta" href="mailto:vishal.dalve@gmail.com">Get in touch</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-panel">
+      <div class="avatar-circle">VD</div>
+      <div>
+        <h1>Vishal Rajendra Dalve</h1>
+        <div class="role">Senior Backend Engineer | FinTech | Payments | Banking APIs | Node.js | Microservices | Distributed Systems</div>
+        <p class="sub">10+ years building scalable, secure, high-performance backend systems across FinTech, Payments, Banking, and Web3 — designing resilient microservices, distributed systems, and payment infrastructure that powers global financial platforms.</p>
+      </div>
+    </div>
+    <div class="hero-meta">
+      <span>📍 Pune, India</span>
+      <span>✉️ <a href="mailto:vishal.dalve@gmail.com">vishal.dalve@gmail.com</a></span>
+      <span>📱 +91 9595755108</span>
+      <span>🔗 <a href="https://linkedin.com/in/vishal-dalve-b38a9086" target="_blank" rel="noopener">LinkedIn</a></span>
+    </div>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#projects">View Projects</a>
+      <a class="btn btn-outline" href="resume.pdf" download>Download Resume</a>
+      <a class="btn btn-outline" href="mailto:vishal.dalve@gmail.com">Email Me</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about">
+      <div class="eyebrow">Profile</div>
+      <h2 class="section-title">About Me</h2>
+      <p>I'm a Senior Backend Engineer with 10+ years of experience building scalable, secure, and high-performance backend systems across FinTech, Payments, Banking, and Web3. I specialize in designing resilient microservices, distributed systems, and payment infrastructure that powers global financial platforms.</p>
+      <p>My expertise includes Payment Gateways, Banking-as-a-Service (BaaS), Open Banking, Banking APIs, Card Payments, Wallets, Bank Transfers, Payment Orchestration, Reconciliation, and Scalable API Development.</p>
+      <div class="callout">
+        <p><strong>Key achievement:</strong> Designed a generic payment integration framework that standardized provider onboarding — reducing development effort for new payment integrations while improving maintainability, scalability, and engineering productivity.</p>
+      </div>
+      <p>I'm passionate about solving complex engineering challenges, designing highly available backend platforms, and building scalable financial infrastructure. I enjoy collaborating with cross-functional teams to deliver secure, reliable, customer-centric payment solutions.</p>
+    </div>
+    <div class="side-stack">
+      <div class="skill-card">
+        <h3>Languages Spoken</h3>
+        <div class="tag-list">
+          <span class="tag">Marathi</span>
+          <span class="tag">English</span>
+          <span class="tag">Hindi</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Focus Areas</h3>
+        <div class="tag-list">
+          <span class="tag">FinTech</span>
+          <span class="tag">Payments</span>
+          <span class="tag">Banking</span>
+          <span class="tag">Web3</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow">Core Expertise</div>
+    <h2 class="section-title">What I Work With</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Languages &amp; Frameworks</h3>
+        <div class="tag-list">
+          <span class="tag">Node.js</span><span class="tag">TypeScript</span>
+          <span class="tag">JavaScript</span><span class="tag">Express.js</span>
+          <span class="tag">Hapi.js</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Architecture &amp; APIs</h3>
+        <div class="tag-list">
+          <span class="tag">Microservices</span><span class="tag">Distributed Systems</span>
+          <span class="tag">REST APIs</span><span class="tag">GraphQL</span>
+          <span class="tag">Event-Driven Architecture</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Data &amp; Messaging</h3>
+        <div class="tag-list">
+          <span class="tag">PostgreSQL</span><span class="tag">MongoDB</span>
+          <span class="tag">Redis</span><span class="tag">Kafka</span>
+          <span class="tag">RabbitMQ</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Cloud</h3>
+        <div class="tag-list">
+          <span class="tag">GCP</span><span class="tag">AWS</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Payments &amp; Banking</h3>
+        <div class="tag-list">
+          <span class="tag">Payment Gateways</span><span class="tag">Banking APIs</span>
+          <span class="tag">BaaS</span><span class="tag">Payment Orchestration</span>
+          <span class="tag">Reconciliation</span><span class="tag">Webhooks</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Security &amp; System Design</h3>
+        <div class="tag-list">
+          <span class="tag">PCI-aware Payment Systems</span><span class="tag">OAuth</span>
+          <span class="tag">JWT</span><span class="tag">API Security</span>
+          <span class="tag">System Design</span><span class="tag">Performance Optimization</span>
+          <span class="tag">Scalability</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Blockchain &amp; Web3</h3>
+        <div class="tag-list">
+          <span class="tag">Blockchain Developer</span><span class="tag">Bitcoin</span>
+          <span class="tag">Ethereum</span><span class="tag">Smart Contract</span>
+          <span class="tag">Private Blockchain</span><span class="tag">Web3.js</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Tools &amp; Fundamentals</h3>
+        <div class="tag-list">
+          <span class="tag">Git</span><span class="tag">Algorithms</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="integrations">
+  <div class="wrap">
+    <div class="eyebrow">Global Payment &amp; Banking Integrations</div>
+    <h2 class="section-title">Platforms &amp; Providers I've Integrated</h2>
+
+    <div class="featured-integration">
+      <div class="icon">C</div>
+      <div>
+        <h3>Checkout.com</h3>
+        <p>Global card acquiring, 3DS 2.x authentication, authorization &amp; capture, delayed capture, refunds, chargeback handling, liability shift, AFT, and card scheme compliance.</p>
+      </div>
+    </div>
+
+    <div class="provider-grid">
+      <div class="provider-card">
+        <h3>Payment Service Providers (PSPs)</h3>
+        <div class="provider-list">
+          <div class="provider-item"><div class="name">Stripe</div><div class="desc">Global card payment processing.</div></div>
+          <div class="provider-item"><div class="name">Nuvei</div><div class="desc">Global payment processing.</div></div>
+        </div>
+      </div>
+      <div class="provider-card">
+        <h3>Digital Wallets</h3>
+        <div class="provider-list">
+          <div class="provider-item"><div class="name">Apple Pay</div></div>
+          <div class="provider-item"><div class="name">Google Pay</div></div>
+          <div class="provider-item"><div class="name">PayPal</div></div>
+        </div>
+      </div>
+      <div class="provider-card">
+        <h3>Open Banking</h3>
+        <div class="provider-list">
+          <div class="provider-item"><div class="name">Plaid</div><div class="desc">EUR &amp; GBP Payment Initiation.</div></div>
+        </div>
+      </div>
+      <div class="provider-card">
+        <h3>Banking-as-a-Service / Banking APIs</h3>
+        <div class="provider-list">
+          <div class="provider-item"><div class="name">OpenPayd</div><div class="desc">Virtual IBANs, SEPA, Faster Payments.</div></div>
+          <div class="provider-item"><div class="name">Modulr</div><div class="desc">Virtual Accounts, Faster Payments.</div></div>
+          <div class="provider-item"><div class="name">Cross River Bank</div><div class="desc">ACH &amp; Wire Transfers — USA.</div></div>
+          <div class="provider-item"><div class="name">BCB Group</div><div class="desc">Banking APIs, Virtual Accounts.</div></div>
+        </div>
+      </div>
+      <div class="provider-card">
+        <h3>Regional Payment Providers</h3>
+        <div class="provider-list">
+          <div class="provider-item"><div class="name">Xendit</div><div class="desc">GCash, Maya &amp; Local PH Payments.</div></div>
+          <div class="provider-item"><div class="name">Juno</div><div class="desc">Cash App &amp; Wire Transfers — USA.</div></div>
+          <div class="provider-item"><div class="name">MobiKwik</div><div class="desc">INR On-Ramp.</div></div>
+          <div class="provider-item"><div class="name">NeoKred</div><div class="desc">INR On/Off Ramp.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow">Work Experience</div>
+    <h2 class="section-title">Where I've Worked</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="meta">Nov 2021 — Present</div>
+        <div class="role">Senior Software Engineer, Backend Systems</div>
+        <div class="org">Transak Pvt Ltd</div>
+        <p>Designing and building microservices as required, owning key architecture decisions and implementation, and integrating multiple payment providers — handling core payment processing for the Transak product (crypto on/off-ramp).</p>
+        <p>Designed a generic payment integration framework that standardized provider onboarding, reducing development effort for new integrations while improving maintainability and scalability.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="meta">Feb 2020 — Nov 2021</div>
+        <div class="role">Sr Solution Developer</div>
+        <div class="org">Tata Technologies</div>
+        <p>Handling overall application backend.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="meta">Jan 2019 — Feb 2020</div>
+        <div class="role">Sr Blockchain Node.js Developer</div>
+        <div class="org">Vinove Software And Services</div>
+        <p>Responsible for creating fully functional decentralized applications based on Ethereum and Hyperledger frameworks. Off-chain & on-chain integration. Handling DevOps tasks.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="meta">May 2018 — Dec 2018</div>
+        <div class="role">Blockchain Node.js Developer</div>
+        <div class="org">Saaragh Technology Pvt Ltd</div>
+        <p>MEAN stack & blockchain developer.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="meta">Jan 2016 — Apr 2018</div>
+        <div class="role">Android Node.js Developer</div>
+        <div class="org">Websvento Infotech Pvt Ltd</div>
+        <p>Designed and developed Android applications with Node.js as the backend.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="eyebrow">Education</div>
+    <h2 class="section-title">Academic Background</h2>
+    <div class="edu-grid">
+      <div class="edu-card"><div class="year">2015</div><div class="deg">MCA</div><div class="school">Pune University</div></div>
+      <div class="edu-card"><div class="year">2015</div><div class="deg">B.Sc</div><div class="school">Yeshwant College of Information Technology, Parbhani</div></div>
+      <div class="edu-card"><div class="year">2012</div><div class="deg">XIIth</div><div class="school">English Medium</div></div>
+      <div class="edu-card"><div class="year">2007</div><div class="deg">Xth</div><div class="school">Marathi Medium</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow">Projects</div>
+    <h2 class="section-title">Things I've Built — click a card for details</h2>
+    <div class="projects-grid" id="projects-grid"></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <h2>Let's build something together</h2>
+      <p>Open to connecting with engineering leaders and product companies across Germany, UAE, Europe, UK, and India — especially in FinTech, Payments, Banking, and SaaS.</p>
+      <p class="regions">Open to full-time roles, freelance work, and interesting conversations.</p>
+      <a class="btn btn-primary" href="mailto:vishal.dalve@gmail.com">Say Hello</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">&copy; <span id="year"></span> Vishal Rajendra Dalve. Built with HTML &amp; CSS, deployed on Vercel.</div>
+</footer>
+
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" id="modal">
+    <div class="modal-top"></div>
+    <button class="modal-close" id="modal-close">✕</button>
+    <div class="modal-body">
+      <div class="modal-top-row">
+        <span class="project-category" id="modal-category"></span>
+      </div>
+      <h3 id="modal-title"></h3>
+      <div class="modal-dur" id="modal-dur"></div>
+      <p class="desc" id="modal-desc"></p>
+      <div class="modal-links" id="modal-links"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Projects list — sourced entirely from the resume. Every project carries the
+  // same fields (category, duration, description) so all cards render consistently.
+  const projects = [
+    { name: 'Transak (Crypto On/Off Ramp)', category: 'FinTech / Payments', dur: 'Nov 2021 — Present', desc: "Designing and building microservices for Transak's crypto on/off-ramp product, owning key architecture decisions and implementation, and integrating multiple payment providers to handle core payment processing.", link: 'https://global.transak.com' },
+    { name: 'sWorkshop', category: 'Enterprise App', dur: '275 Days', desc: 'Jaguar Land Rover application designed for all service centers.', link: null },
+    { name: 'ellypin.com', category: 'Blockchain', dur: '2184 Days', desc: 'Selling & buying ERC20 and ERC721 tokens. Deployment of tokens on public and Ethereum private networks.', link: null },
+    { name: 'Hotbot VPN', category: 'SaaS', dur: '61 Days', desc: 'Developed backend code using TypeScript. Integrated a paid API for the VPN service, payment gateway integration, and role implementation.', link: null },
+    { name: 'SellZY', category: 'Blockchain', dur: '61 Days', desc: 'Property management platform using Ethereum blockchain.', link: null },
+    { name: 'CryptoGold', category: 'Blockchain', dur: '120 Days', desc: 'An OLX-style marketplace app using a private crypto coin, backed by an Ethereum smart contract. Handled the MEAN stack and blockchain integration solo.', link: null },
+    { name: 'BTC-ETH Swap', category: 'Blockchain', dur: '92 Days', desc: 'Swapping of Bitcoin to Ethereum and vice-versa.', link: null },
+    { name: 'Bitcoin Handbook', category: 'Education', dur: '31 Days', desc: 'A learning resource for people getting started with blockchain.', link: null },
+    { name: 'Facebook Profile Analyser', category: 'Android', dur: '31 Days · Live on Play Store', desc: 'Facebook profile analysis app to track likes, comments, stalkers, and top male/female friends, and much more.', link: 'https://play.google.com/store/apps/details?id=com.viralprofile.app.free' },
+    { name: 'MCash', category: 'Android', dur: '92 Days · Live on Play Store', desc: 'Refer-and-earn Android app — get benefits by installing apps and making recharges to earn money.', link: 'https://play.google.com/store/apps/details?id=com.adacts.mcash' },
+    { name: 'The Laundry Bag', category: 'Android', dur: '61 Days · Live on Play Store', desc: "Smart laundry management on users' mobile — on-demand laundry service.", link: 'https://play.google.com/store/apps/details?id=com.thelaundrybag.app' },
+    { name: 'Sinhgad Institutes Android App', category: 'Android', dur: '122 Days', desc: 'Generates notifications for college students — academic notices and other updates, plus placement activity registration.', link: null }
+  ];
+
+  const grid = document.getElementById('projects-grid');
+  projects.forEach((p, i) => {
+    const card = document.createElement('button');
+    card.className = 'project-card';
+    card.style.border = '1px solid var(--border)';
+    card.setAttribute('type', 'button');
+    card.innerHTML = `
+      <div class="project-thumb"></div>
+      <div class="project-body">
+        <div class="project-top-row">
+          <span class="project-category">${p.category}</span>
+          <span class="dur">${p.dur}</span>
+        </div>
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+        <div class="project-more">View details →</div>
+      </div>`;
+    card.addEventListener('click', () => openModal(i));
+    grid.appendChild(card);
+  });
+
+  const overlay = document.getElementById('modal-overlay');
+  function openModal(i) {
+    const p = projects[i];
+    document.getElementById('modal-category').textContent = p.category;
+    document.getElementById('modal-title').textContent = p.name;
+    document.getElementById('modal-dur').textContent = p.dur;
+    document.getElementById('modal-desc').textContent = p.desc;
+    const linksEl = document.getElementById('modal-links');
+    const linkLabel = p.link && p.link.includes('play.google.com') ? 'View on Play Store ↗' : 'Visit Website ↗';
+    linksEl.innerHTML = p.link
+      ? `<a class="btn btn-primary" href="${p.link}" target="_blank" rel="noopener">${linkLabel}</a>`
+      : '';
+    overlay.classList.add('open');
+  }
+  function closeModal() { overlay.classList.remove('open'); }
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+</script>
+
+</body>
+</html>
